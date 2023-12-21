@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}<title>جزئیات خرج | بستون</title>{% endblock %}
+
+{% block content %}
+{% for expense in expenses %}
+<h1>{{expense.title}}</h1>
+<hr />
+مقدار: {{expense.amount}} تومان<hr />
+<b><h4>تاریخ ثبت: {{expense.created.date}}</h4></b>
+<b><h4>تاریخ تغییر: {{expense.updated.date}}</h4></b>
+<hr />
+<b><h4>زمان ثبت: {{expense.created.time}}</h4></b>
+<b><h4>زمان تغییر: {{expense.updated.time}}</h4></b><hr />
+<h1>قابلیت ها</h1>
+<a href="{% url 'web:expense_delete' expense.slug %}" class="btn btn-danger">حذف خرج</a>
+<a href="" class="btn btn-info">تغییر خرج</a>
+{% endfor %}
+{% endblock %}

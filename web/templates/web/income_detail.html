@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}<title>جزئیات درآمد | بستون</title>{% endblock %}
+
+{% block content %}
+{% for income in incomes %}
+<h1>{{income.title}}</h1>
+<hr />
+مقدار: {{income.amount}} تومان<hr />
+<b><h4>تاریخ ثبت: {{income.created.date}}</h4></b>
+<b><h4>تاریخ تغییر: {{income.updated.date}}</h4></b>
+<hr />
+<b><h4>زمان ثبت: {{income.created.time}}</h4></b>
+<b><h4>زمان تغییر: {{income.updated.time}}</h4></b><hr />
+<h1>قابلیت ها</h1>
+<a href="{% url 'web:income_delete' income.slug %}" class="btn btn-danger">حذف درآمد</a>
+<a href="" class="btn btn-info">تغییر درآمد</a>
+{% endfor %}
+{% endblock %}

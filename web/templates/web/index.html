@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}<title>بستون | صفحه اصلی</title>{% endblock %}
+
+{% block content %}
+<h1>خرج ها:</h1>
+<br />
+{% if expenses %}
+{% for expense in expenses %}
+<ul class="list-group list-group-flush">
+<li class="list-group-item"><a href="{% url 'web:expense_detail' expense.slug %}">{{expense.title}}</a><hr /></li>
+</ul>
+{% endfor %}
+{% else %}
+<p class="alert alert-warning">بدون خرج</p>
+{% endif %}
+<hr />
+<h1>درآمد ها:</h1>
+<br />
+{% if incomes %}
+{% for income in incomes %}
+<ul class="list-group list-group-flush">
+<li class="list-group-item"><a href="{% url 'web:income_detail' income.slug %}">{{income.title}}</a><hr /></li>
+</ul>
+{% endfor %}
+{% else %}
+<p class="alert alert-warning">بدون درآمد</p>
+{% endif %}
+{% endblock %}
