@@ -3,27 +3,35 @@
 {% block title %}<title>بستون | صفحه اصلی</title>{% endblock %}
 
 {% block content %}
-<h1>خرج ها:</h1>
-<br />
+{% if request.user.is_authenticated %}
+<h1>خرج ها: </h1><br />
+<a href="{% url 'web:expense_create' %}" class="btn btn-outline-info">ساخت خرج</a><hr />
 {% if expenses %}
 {% for expense in expenses %}
+{% if expense.user == request.user %}
 <ul class="list-group list-group-flush">
-<li class="list-group-item"><a href="{% url 'web:expense_detail' expense.slug %}">{{expense.title}}</a><hr /></li>
+<li class="list-group-item"><a href="{% url 'web:expense_detail' expense.id %}">{{expense.title}}</a><hr /></li>
 </ul>
+{% endif %}
 {% endfor %}
 {% else %}
 <p class="alert alert-warning">بدون خرج</p>
 {% endif %}
 <hr />
-<h1>درآمد ها:</h1>
-<br />
+<h1>درآمد ها:</h1><br />
+<a href="{% url 'web:income_create' %}" class="btn btn-outline-info">ساخت درآمد</a><hr />
 {% if incomes %}
 {% for income in incomes %}
+{% if income.user == request.user %}
 <ul class="list-group list-group-flush">
-<li class="list-group-item"><a href="{% url 'web:income_detail' income.slug %}">{{income.title}}</a><hr /></li>
+<li class="list-group-item"><a href="{% url 'web:income_detail' income.id %}">{{income.title}}</a><hr /></li>
 </ul>
+{% endif %}
 {% endfor %}
 {% else %}
 <p class="alert alert-warning">بدون درآمد</p>
+{% endif %}
+{% else %}
+<h1 class="alrt alert-warning">برای استفاده از سایت باید ورود کرده باشید</h1>
 {% endif %}
 {% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}<title>ثبت نام | بستون</title>{% endblock %}
+
+{% block content %}
+<h1>ثبت نام</h1>
+<form action="{% url 'accounts:user_register' %}" method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" class="btn btn-outline-primary" value="ثبت نام">
+</form>
+{% endblock %}

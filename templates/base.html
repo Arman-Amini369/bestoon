@@ -1,6 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="fa" dir="rtl" >
 <head>
     <meta charset="UTF-8">
     {% block title %}<title>بستون</title>{% endblock %}
@@ -16,11 +16,13 @@
         hr{
             color:darkcyan;
         }
+        a{
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
-    {% block sidebar %}{% endblock %}
-    {% block navbar %}{% endblock %}
+
     {% include 'includes/navbar.html' %}
     <div class="jumbotron">
         {% include 'includes/messages.html' %}

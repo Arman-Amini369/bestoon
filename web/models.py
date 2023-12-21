@@ -6,7 +6,6 @@ class Income(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=500)
     amount = models.BigIntegerField()
-    slug = models.SlugField(allow_unicode=True)
     created = jmodels.jDateTimeField(auto_now_add=True)
     updated = jmodels.jDateTimeField(auto_now=True)
 
@@ -20,7 +19,6 @@ class Expense(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=500)
     amount = models.BigIntegerField()
-    slug = models.SlugField(allow_unicode=True)
     created = jmodels.jDateTimeField(auto_now_add=True)
     updated = jmodels.jDateTimeField(auto_now=True)
 

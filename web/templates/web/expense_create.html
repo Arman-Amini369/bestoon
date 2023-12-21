@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}<title>ساخت خرج | بستون</title>{% endblock %}
+
+
+{% block content %}
+<h1>ساخت خرج</h1>
+<form action="{% url 'web:expense_create' %}" method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" class="btn btn-outline-primary" value="ساخت">
+</form>
+{% endblock %}

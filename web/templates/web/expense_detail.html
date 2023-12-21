@@ -13,7 +13,7 @@
 <b><h4>زمان ثبت: {{expense.created.time}}</h4></b>
 <b><h4>زمان تغییر: {{expense.updated.time}}</h4></b><hr />
 <h1>قابلیت ها</h1>
-<a href="{% url 'web:expense_delete' expense.slug %}" class="btn btn-danger">حذف خرج</a>
-<a href="" class="btn btn-info">تغییر خرج</a>
+<a href="{% url 'web:expense_delete' expense.id %}" class="btn btn-danger">حذف خرج</a>
+<a href="{% url 'web:expense_update' expense.id %}" class="btn btn-info">تغییر خرج</a>
 {% endfor %}
 {% endblock %}
