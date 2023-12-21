@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django_jalali.db import models as jmodels
 
 class Income(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=500)
     amount = models.BigIntegerField()
     slug = models.SlugField(allow_unicode=True)
@@ -17,7 +17,7 @@ class Income(models.Model):
         return self.title
     
 class Expense(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=500)
     amount = models.BigIntegerField()
     slug = models.SlugField(allow_unicode=True)
